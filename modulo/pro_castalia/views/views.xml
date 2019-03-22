@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+    <record id="sale_order_note" model="ir.ui.view">
+      <field name="name">note</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"></field>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='payment_term_id']" position="after">
+          <field name="amount_notes"/>
+          <field name="id_client" invisible="1"/>
+          <field name="credit_notes" widget="selection" 
+            domain="[
+              ('type', '=', 'out_refund'),
+              ('state', '=', 'open'),
+              ('partner_id','=', id_client)
+            ]"/>
+          <field name="amount_note_now"></field>
+        </xpath>
+      </field>
+    </record>
+    <record id="account_invoice_id_note" model="ir.ui.view">
+      <field name="name">id.note</field>
+      <field name="model">account.invoice</field>
+      <field name="inherit_id" ref="account.invoice_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='team_id']" position="after">
+          <field name="id_nota"/>
+          <field name="nota" attrs="{'invisible': [('id_nota', '=', 0)]}"/>
+        </xpath>
+        <xpath expr="//field[@name='amount_tax']" position="after">
+          <field name="amount_note" attrs="{'invisible': [('id_nota', '=', 0)]}"/>
+        </xpath>
+        <xpath expr="//button[@name='action_invoice_open']" position="after">
+          <button name="boton" type="object" string="Boton"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
