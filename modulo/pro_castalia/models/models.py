@@ -76,9 +76,11 @@ class AccountInvoice2(models.Model):
 		self.amount_untaxed_signed = amount_untaxed_signed * sign
 
 	@api.one
-	def boton(self):
+	def action_invoice_open(self):
 		for order in self:
-			order.invoice_print()
-
+			id = order.search([('id', '=', self.refund_invoice_id.id)])
+			if id:
+				order.write({'state':'paid'})
+		return super(AccountInvoice2, self).action_invoice_open()		
 	
 	
