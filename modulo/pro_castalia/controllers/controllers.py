@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
 from odoo import http
 
-# class ProCatalia(http.Controller):
-#     @http.route('/pro_catalia/pro_catalia/', auth='public')
+# class Castalia(http.Controller):
+#     @http.route('/castalia/castalia/', auth='public')
 #     def index(self, **kw):
 #         return "Hello, world"
 
-#     @http.route('/pro_catalia/pro_catalia/objects/', auth='public')
+#     @http.route('/castalia/castalia/objects/', auth='public')
 #     def list(self, **kw):
-#         return http.request.render('pro_catalia.listing', {
-#             'root': '/pro_catalia/pro_catalia',
-#             'objects': http.request.env['pro_catalia.pro_catalia'].search([]),
+#         return http.request.render('castalia.listing', {
+#             'root': '/castalia/castalia',
+#             'objects': http.request.env['castalia.castalia'].search([]),
 #         })
 
-#     @http.route('/pro_catalia/pro_catalia/objects/<model("pro_catalia.pro_catalia"):obj>/', auth='public')
+#     @http.route('/castalia/castalia/objects/<model("castalia.castalia"):obj>/', auth='public')
 #     def object(self, obj, **kw):
-#         return http.request.render('pro_catalia.object', {
+#         return http.request.render('castalia.object', {
 #             'object': obj
 #         })
